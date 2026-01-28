@@ -1,13 +1,13 @@
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyBjD-dJ_N4IAOy1ViWnx6zNC41jP8RdYME",
+  authDomain: "mamacare-975e4.firebaseapp.com",
+  projectId: "mamacare-975e4",
+  storageBucket: "mamacare-975e4.firebasestorage.app",
+  messagingSenderId: "105719713004",
+  appId: "1:105719713004:web:1ad7da192241d5a88ce9c9",
+  measurementId: "G-RB5M20T70M"
 };
 
 export const app = initializeApp(firebaseConfig);
