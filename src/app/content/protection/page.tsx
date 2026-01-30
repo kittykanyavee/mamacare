@@ -1,10 +1,14 @@
 import React from 'react';
 import MenuBar from '@/component/menu_bar';
+import Nav_bar from '@/component/nav_bar';
+import BackButton from '@/component/back_button';
 
 export default function Page() {
   return (
     <div className="mobile bg-pink-200 p-6 flex flex-col items-center font-baloo relative">
       <MenuBar />
+      <BackButton path="/content" />
+
       {/* หัวข้อ */}
       <div className="items-center flex justify-center bg-[#AADAD5] font-sarabun font-bold w-200 min-h-[40px] px-8 border border-white text-2x gap-2 mb-10">
         <img alt="care" src="/assets/14.webp" width={40} />
@@ -35,6 +39,7 @@ export default function Page() {
           ป้องกันหลังผ่าตัด
         </h1>
       </div>
+      <Nav_bar />
     </div>
   );
 }

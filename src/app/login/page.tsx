@@ -171,6 +171,15 @@ const Page = () => {
     signInWithGoogle();
   }*/
   const [loading, setLoading] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowForm(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   async function handleConfirmLogin(name: string) {
     try {
@@ -197,24 +206,47 @@ const Page = () => {
         width={320}
         height={0}
       ></img>
-      <div className="flex flex-col items-center gap-2">
-        <h2 className="text-[24px] leading-[24px] font-semibold font-sarabun">
-          กรุณากรอกชื่อของคุณ
-        </h2>
-      </div>
-      <div className="flex flex-col items-center gap-2">
-        <input
-          className="text-lg font-semibold py-2 px-4 text-[#DD6774] font-sarabun text-center border border-pinky rounded-full bg-white focus:outline-none shadow-md"
-          placeholder="ชื่อของคุณ"
-          onChange={e => setName(e.target.value)}
-        />
-        <button
-          onClick={handleOpenPolicy}
-          className="px-6 py-3 pb-2 bg-pinky text-white font-baloo text-[12px] leading-[12px] text-center font-medium rounded-full shadow-md border border-[#DD6774] hover:text-[#DD6774] hover:bg-[#FFDDE6] transition-colors"
+      <img
+        alt="center mama care"
+        src="assets/2.webp"
+        width={220}
+        className={`
+      absolute transition-all duration-700 ease-in-out
+      ${showForm ? 'opacity-0 scale-90' : 'opacity-100 scale-100'}
+    `}
+      />
+      <div className="relative h-[220px] flex flex-col items-center justify-center gap-4">
+        {/* Logo */}
+
+        {/* Form */}
+        <div
+          className={`
+      absolute flex flex-col items-center gap-4
+      transition-all duration-700 ease-in-out
+      ${showForm ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
+    `}
         >
-          Submit
-        </button>
+          <h2 className="text-[24px] leading-[24px] font-semibold font-sarabun">
+            กรุณากรอกชื่อของคุณ
+          </h2>
+
+          <div className="flex flex-col items-center gap-2">
+            <input
+              className="text-lg font-semibold py-2 px-4 text-[#DD6774] font-sarabun text-center border border-pinky rounded-full bg-white focus:outline-none shadow-md"
+              placeholder="ชื่อของคุณ"
+              onChange={e => setName(e.target.value)}
+              onKeyPress={e => e.key === 'Enter' && handleOpenPolicy()}
+            />
+            <button
+              onClick={handleOpenPolicy}
+              className="px-6 py-3 pb-2 bg-pinky text-white font-baloo text-[12px] leading-[12px] text-center font-medium rounded-full shadow-md border border-[#DD6774] hover:text-[#DD6774] hover:bg-[#FFDDE6] transition-colors"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
       </div>
+
       <img alt="foot" src="assets/3.webp" width={200} />
       <img
         alt="curve"

@@ -9,6 +9,7 @@ interface Question {
   question: string;
   choices: string[];
   answer: number;
+  reason: string;
 }
 
 const Quiz = ({ question }: { question: Question | null }) => {
@@ -168,6 +169,12 @@ const Quiz = ({ question }: { question: Question | null }) => {
               </li>
             ))}
           </ul>
+          {answer !== undefined ? (
+            <p className="pt-4 text-center">
+              <p className="font-sarabun text-xl font-semibold">เฉลย</p> ข้อ{' '}
+              {question.answer} {question.reason}
+            </p>
+          ) : undefined}
         </>
       ) : (
         <p>Loading...</p>

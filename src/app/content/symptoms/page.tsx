@@ -1,10 +1,13 @@
 import React from 'react';
 import MenuBar from '@/component/menu_bar';
+import Nav_bar from '@/component/nav_bar';
+import BackButton from '@/component/back_button';
 
 function page() {
   return (
     <div className="mobile bg-[#FCF9DA] p-6 flex flex-col items-center font-baloo">
       <MenuBar />
+      <BackButton path="/content" />
 
       {/* หัวข้อ */}
       <div className="items-center flex justify-center bg-[#AADAD5] font-sarabun font-bold w-full min-h-[40px] px-8 border border-white text-2x gap-2 mb-2">
@@ -75,6 +78,7 @@ function page() {
           </p>
         </div>
       </div>
+      <Nav_bar />
     </div>
   );
 }

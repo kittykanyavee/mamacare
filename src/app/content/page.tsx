@@ -2,6 +2,8 @@
 import MenuBar from '@/component/menu_bar';
 import React from 'react';
 import Image from 'next/image';
+import Nav_bar from '@/component/nav_bar';
+import BackButton from '@/component/back_button';
 const page = () => {
   const menuItems = [
     {
@@ -27,6 +29,8 @@ const page = () => {
         alt="frame"
         className="absolute top-0 object-cover w-[447.96px] h-[36.5px]"
       />
+      <BackButton path="/" />
+
       <MenuBar />
       <div className="flex flex-col items-center justify-center w-full px-[20px] gap-4">
         <div className="text-end">
@@ -59,11 +63,7 @@ const page = () => {
           ))}
         </ul>
       </div>
-      <img
-        alt="curve"
-        src="assets/1.webp"
-        className="absolute bottom-0 object-cover w-[447.96px] h-[36.5px]"
-      />
+      <Nav_bar />
     </div>
   );
 };

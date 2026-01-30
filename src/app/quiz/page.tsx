@@ -1,5 +1,7 @@
+import BackButton from '@/component/back_button';
 import State from '@/component/game/state';
 import MenuBar from '@/component/menu_bar';
+import Nav_bar from '@/component/nav_bar';
 import React from 'react';
 
 const Page = () => {
@@ -11,6 +13,7 @@ const Page = () => {
           alt="frame"
           className="absolute top-0 object-cover w-[447.96px] h-[36.5px]"
         />
+        <BackButton path="/" />
         <MenuBar />
         <div className="relative py-8">
           <img
@@ -36,6 +39,7 @@ const Page = () => {
         </div>
         <State />
       </section>
+      <Nav_bar />
       <img
         alt="curve"
         src="assets/1.webp"

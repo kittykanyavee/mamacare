@@ -1,6 +1,8 @@
 'use client';
 import React from 'react';
 import MenuBar from '@/component/menu_bar';
+import Nav_bar from '@/component/nav_bar';
+import BackButton from '@/component/back_button';
 
 function page() {
   function handleClick(path: string) {
@@ -14,6 +16,7 @@ function page() {
         className="fixed top-0 object-cover w-[447.96px] h-[36.5px]"
       />
       <MenuBar />
+      <BackButton path="/content" />
 
       {/* หัวข้อ */}
       <div className="items-center flex justify-center bg-[#AADAD5] font-bold min-h-[40px] px-8 border border-white text-2x gap-2 mb-10">
@@ -61,6 +64,7 @@ function page() {
           </div>
         </div>
       </div>
+      <Nav_bar />
     </div>
   );
 }

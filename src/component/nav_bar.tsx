@@ -1,28 +1,47 @@
 'use client';
+
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import { Home, FileText, ArrowLeft } from 'lucide-react';
+import Image from 'next/image';
+
 export default function Nav_bar() {
   const router = useRouter();
-  function handlehome() {
-    router.push('/menu');
-  }
+
+  const baseBtn =
+    'flex items-center gap-2 bg-[#B7E0DD] px-6 py-2 border-2 border-white rounded-lg hover:scale-105 transition';
+  const navItems = [
+    {
+      title: 'content',
+      icon: '/assets/lightbumb.png',
+      path: '/content',
+    },
+    {
+      title: 'Home',
+      icon: '/assets/home3.png',
+      path: '/',
+    },
+    {
+      title: 'test',
+      icon: '/assets/test.png',
+      path: '/quiz',
+    },
+  ];
   return (
-    <div className="nav_bar flex">
-      <button
-        onClick={handlehome}
-        className="nav- button items-center flex bg-[#B7E0DD] gap-2 px-8 py-2 border-2 border-white"
-      >
-        <img alt="Home" src="assets/7.webp" width={40} />
-        <p className="font-baloo">HOME</p>
-      </button>
-      <button className="nav- button items-center  flex justify-center bg-[#B7E0DD] gap-2 px-4 py-2 border-2 border-white">
-        <img alt="content" src="assets/6.webp" width={40} />
-        <p className="font-baloo">CONTENT</p>
-      </button>
-      <button className="nav- button items-center  flex bg-[#B7E0DD] gap-2 px-8 py-2 border-2 border-white">
-        <img alt="back" src="assets/8.webp" width={40} />
-        <p className="font-baloo">BACK</p>
-      </button>
+    <div
+      className="fixed bottom-4 left-1/2
+    -translate-x-1/2 flex gap-8 px-10 rounded-full w-fit z-20 border-2 border-[#F0818C] bg-white"
+    >
+      {navItems.map(nav => (
+        <button
+          key={nav.title}
+          onClick={() => router.push(nav.path)}
+          className="flex flex-col items-center pt-2"
+        >
+          <Image src={nav.icon} alt="frame" width={40} height={40} />
+          <p className="font-baloo text-black">{nav.title}</p>
+        </button>
+      ))}
     </div>
   );
 }

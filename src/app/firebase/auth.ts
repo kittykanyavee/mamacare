@@ -69,7 +69,7 @@ export async function signInWithName(name: string) {
     if (!sess.ok) throw new Error('ตั้ง session ไม่สำเร็จ');
 
     localStorage.setItem('uID', data.uid);
-    window.location.assign('/content');
+    window.location.assign('/');
     return;
   }
 

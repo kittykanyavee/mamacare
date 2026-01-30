@@ -84,7 +84,7 @@ const Assessment = ({ prop }: { prop: Form[] }) => {
   }
 
   return (
-    <div className="flex flex-col" style={{ gap: '32px' }}>
+    <div className="flex flex-col pb-14" style={{ gap: '32px' }}>
       {form.map((f, formIndex) => (
         <div key={formIndex} className="flex flex-col gap-2">
           <h4 className="font-bold font-sarabun text-[18px]">{f.title}</h4>

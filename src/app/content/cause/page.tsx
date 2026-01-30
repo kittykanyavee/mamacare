@@ -1,10 +1,13 @@
 import React from 'react';
 import MenuBar from '@/component/menu_bar';
+import Nav_bar from '@/component/nav_bar';
+import BackButton from '@/component/back_button';
 
 export default function causepage() {
   return (
     <div className="mobile bg-[#FCF9DA] p-6 flex flex-col items-center font-baloo">
       <MenuBar />
+      <BackButton path="/content" />
 
       {/* หัวข้อ */}
       <div className="items-center flex justify-center bg-[#AADAD5] font-baloo font-bold w-fit min-h-[40px] px-8 border border-white gap-2 mb-12">
@@ -108,6 +111,7 @@ export default function causepage() {
           มีการติดเชื้อของเยื่อหุ้มเด็ก
         </p>
       </div>
+      <Nav_bar />
     </div>
   );
 }

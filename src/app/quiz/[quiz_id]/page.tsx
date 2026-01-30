@@ -3,12 +3,14 @@ import Quiz from '@/component/game/quiz';
 import React, { useEffect, useState } from 'react';
 import question from '@/quiz.json';
 import { useParams } from 'next/navigation';
-
+import BackButton from 'src/component/back_button';
+import Nav_bar from '@/component/nav_bar';
 interface Question {
   id: number;
   question: string;
   choices: string[];
   answer: number;
+  reason: string;
 }
 
 const Page = () => {
@@ -22,7 +24,8 @@ const Page = () => {
     }
   }, [params.quiz_id]);
   return (
-    <div className="mobile flex flex-col items-center justify-start gap-4 relative pb-9 pt-12 px-[20px] overflow-hidden">
+    <div className="mobile flex flex-col items-center justify-start gap-4 relative pb-28 pt-12 px-[20px] overflow-hidden">
+      <BackButton path="/quiz" />
       <img
         src="/assets/5.webp"
         alt="frame"
@@ -35,11 +38,7 @@ const Page = () => {
       >
         ย้อนกลับ
       </button>
-      <img
-        alt="curve"
-        src="/assets/1.webp"
-        className="absolute bottom-0 object-cover w-[447.96px] h-[36.5px]"
-      />
+      <Nav_bar />
     </div>
   );
 };

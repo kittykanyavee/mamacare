@@ -1,10 +1,13 @@
 import React from 'react';
 import MenuBar from '@/component/menu_bar';
+import Nav_bar from '@/component/nav_bar';
+import BackButton from '@/component/back_button';
 
 export default function Page() {
   return (
     <div className="mobile bg-[#FCF9DA] p-6 flex flex-col items-center font-baloo">
       <MenuBar />
+      <BackButton path="/content/care" />
 
       <div className="items-center flex justify-center bg-[#AADAD5] font-sarabun font-bold w-fit  min-h-[40px] px-8 border border-white text-2x gap-2 mb-10">
         <img alt="care" src="/assets/14.webp" width={40} />
@@ -87,6 +90,7 @@ export default function Page() {
       <h2 className="font-sarabun text-center font-bold mt-6 text-xl text-red-700">
         ภายหลังคลอด 2 สัปดาห์ ยังสามารถคลำได้ก้อนบริเวณหน้าท้อง
       </h2>
+      <Nav_bar />
     </div>
   );
 }

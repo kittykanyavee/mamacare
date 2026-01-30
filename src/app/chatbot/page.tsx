@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { ArrowBigUp } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import MenuBar from '@/component/menu_bar';
+import Nav_bar from '@/component/nav_bar';
+import BackButton from '@/component/back_button';
 
 const Page = () => {
   const [prompt, setPrompt] = useState('');
@@ -63,13 +65,10 @@ const Page = () => {
         alt="frame"
         className="absolute top-0 object-cover w-[447.96px] h-[36.5px]"
       />
-
       <div className="text-[32px] font-extrabold font-sarabun text-center text-[#F0818C]">
         Chat with AI
       </div>
-      <MenuBar />
-
-      {/* พื้นที่แสดงข้อความ */}
+      <MenuBar /> <BackButton path="/" />
       <div className="flex flex-col flex-1 overflow-y-auto py-4 px-[20px] space-y-3 max-h-full">
         {messages.map((msg, idx) => (
           <div
@@ -89,8 +88,6 @@ const Page = () => {
         {loading && <div className="loader-sm h-2 w-2"></div>}
         <div ref={messagesEndRef} />
       </div>
-
-      {/* พื้นที่กรอกข้อความ + ปุ่มส่ง */}
       <div className="px-[20px]">
         <div className="p-2 border-2 border-[#F0818C] bg-white  rounded-3xl flex flex-col">
           <textarea
@@ -115,11 +112,6 @@ const Page = () => {
           </button>
         </div>
       </div>
-      <img
-        alt="curve"
-        src="assets/1.webp"
-        className="absolute bottom-0 object-cover w-[447.96px] h-[36.5px]"
-      />
     </div>
   );
 };

@@ -1,10 +1,14 @@
 import React from 'react';
 import MenuBar from '@/component/menu_bar';
+import Nav_bar from '@/component/nav_bar';
+import BackButton from '@/component/back_button';
 
 export default function Page() {
   return (
     <div className="mobile bg-[#FCF9DA] p-6 flex flex-col items-center font-baloo">
       <MenuBar />
+      <BackButton path="/content/care" />
+
       <div className="items-center flex justify-center bg-[#AADAD5] font-sarabun font-bold w-fit  min-h-[40px] px-8 border border-white text-2x gap-2 mb-10">
         <img alt="care" src="/assets/14.webp" width={40} />
         <h1 className="text-[30px]">การดูแลแผลผ่าตัด</h1>
@@ -169,6 +173,7 @@ export default function Page() {
           />
         </div>
       </div>
+      <Nav_bar />
     </div>
   );
 }

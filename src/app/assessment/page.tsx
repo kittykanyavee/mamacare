@@ -1,6 +1,8 @@
 import React from 'react';
 import Assessment from '@/component/assessment/assessment';
 import MenuBar from '@/component/menu_bar';
+import Nav_bar from '@/component/nav_bar';
+import BackButton from '@/component/back_button';
 
 interface Form {
   title: string;
@@ -71,6 +73,8 @@ const Page = () => {
         alt="frame"
         className="fixed top-0 object-cover w-[447.96px] h-[36.5px]"
       />
+      <BackButton path="/" />
+
       <MenuBar />
       <div className="px-[20px] mt-4">
         <h1 className="text-[32px] font-extrabold font-sarabun text-center text-[#F0818C]">
@@ -78,11 +82,7 @@ const Page = () => {
         </h1>
         <Assessment prop={form} />
       </div>
-      <img
-        alt="curve"
-        src="assets/1.webp"
-        className="fixed bottom-0 object-cover w-[447.96px] h-[36.5px]"
-      />
+      <Nav_bar />
     </div>
   );
 };
