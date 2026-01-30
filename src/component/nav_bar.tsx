@@ -18,7 +18,7 @@ export default function Nav_bar() {
     },
     {
       title: 'Home',
-      icon: '/assets/home3.png',
+      icon: '/assets/home.png',
       path: '/',
     },
     {
