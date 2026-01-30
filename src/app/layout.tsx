@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Sarabun, Baloo_Bhaijaan_2 } from 'next/font/google';
-import Nav_bar from '@/component/nav_bar';
+import { Analytics } from '@vercel/analytics/next';
 
 const sarabun = Sarabun({
   subsets: ['thai', 'latin'],
@@ -29,6 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Analytics />
       <body className={`${sarabun.variable} ${baloo.variable} antialiased`}>
         {children}
       </body>
