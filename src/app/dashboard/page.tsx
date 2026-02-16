@@ -471,7 +471,7 @@ export default function MobileOnlyDashboard() {
                         Math.round(calculateAssessmentAverage(a)) === star
                     ).length || 0;
                   const percent =
-                    filtered?.assessments.length > 0
+                    filtered && filtered.assessments.length > 0
                       ? (count / filtered.assessments.length) * 100
                       : 0;
                   return (
@@ -496,7 +496,7 @@ export default function MobileOnlyDashboard() {
                 ความเห็นล่าสุดจากผู้ใช้
               </p>
               {filtered?.assessments.length > 0 ? (
-                filtered.assessments.slice(0, 3).map((a: any, idx: number) => {
+                filtered!.assessments.slice(0, 3).map((a: any, idx: number) => {
                   const user = data?.users.find((u: any) => u.id === a.userId);
                   const date = toDate(a.submittedAt);
                   const userAvg = calculateAssessmentAverage(a);
