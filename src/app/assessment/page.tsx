@@ -67,16 +67,13 @@ const Page = () => {
     },
   ];
   return (
-    <div className="mobile flex flex-col justify-between pt-12 pb-9">
+    <div className="mobile flex flex-col items-center justify-between pt-12 relative">
       <img
         src="assets/5.webp"
         alt="frame"
         className="fixed top-0 object-cover w-[447.96px] h-[36.5px]"
       />
-      <BackButton path="/" />
-
-      <MenuBar />
-      <div className="px-[20px] mt-4">
+      <div className="px-[20px] mt-2">
         <h1 className="text-[32px] font-extrabold font-sarabun text-center text-[#F0818C]">
           ความพึงพอใจในการใช้ <span className="text-nowrap">MaMa Care</span>
         </h1>

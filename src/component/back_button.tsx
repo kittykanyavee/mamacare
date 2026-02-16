@@ -14,7 +14,7 @@ const BackButton: React.FC<BackButtonProps> = ({ path }) => {
   return (
     <button
       onClick={() => router.push(path)}
-      className="flex bg-white border-2 rounded-full border-[#F0818C] p-1 absolute top-16 left-8 items-center z-50"
+      className="flex bg-white border-2 rounded-full border-[#F0818C] p-1 absolute top-16 left-8 items-center z-1"
     >
       <ChevronLeft className="text-[#F0818C]" />
     </button>

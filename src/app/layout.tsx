@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Sarabun, Baloo_Bhaijaan_2 } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 const sarabun = Sarabun({
   subsets: ['thai', 'latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Analytics />
-      <SpeedInsights/>
+      <SpeedInsights />
       <body className={`${sarabun.variable} ${baloo.variable} antialiased`}>
         {children}
       </body>

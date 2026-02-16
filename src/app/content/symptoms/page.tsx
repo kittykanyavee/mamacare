@@ -3,84 +3,97 @@ import MenuBar from '@/component/menu_bar';
 import Nav_bar from '@/component/nav_bar';
 import BackButton from '@/component/back_button';
 
-function page() {
+export default function SymptomsPage() {
+  const symptomsData = [
+    {
+      id: 1,
+      text: 'ปวด บวม แดง บริเวณแผล',
+      img: '/assets/15.webp',
+    },
+    {
+      id: 2,
+      text: 'แผลแยกหรือปริออก',
+      img: '/assets/19.webp',
+    },
+    {
+      id: 3,
+      text: 'ไข้สูงเกิน 38 องศาเซลเซียส',
+      img: '/assets/17.webp',
+    },
+    {
+      id: 4,
+      text: 'มีฝีหนองบริเวณแผล',
+      img: '/assets/16.webp',
+    },
+    {
+      id: 5,
+      text: 'นํ้าคาวปลามีกลิ่นแรงหรือมีเลือดปน',
+      img: '/assets/18.webp',
+    },
+  ];
+
   return (
-    <div className="mobile bg-[#FCF9DA] p-6 flex flex-col items-center font-baloo">
+    <div className="mobile flex flex-col items-center justify-between pt-12 relative">
+      <img
+        src="/assets/5.webp"
+        alt="frame"
+        className="fixed top-0 object-cover w-[447.96px] h-[36.5px] z-50"
+      />
+
       <MenuBar />
       <BackButton path="/content" />
-
-      {/* หัวข้อ */}
-      <div className="items-center flex justify-center bg-[#AADAD5] font-sarabun font-bold w-full min-h-[40px] px-8 border border-white text-2x gap-2 mb-2">
-        <img alt="chem" src="/assets/13.webp" width={40} />
-        <h1 className="text-l">อาการและอาการแสดงจากการติดเชื้อ</h1>
-      </div>
-      {/* เนื้อหา */}
-      <div className="grid grid-cols-1 gap-10 py-6">
-        {/* อ้วน */}
-        <div className="flex flex-col items-center bg-white">
-          <div className=" border-[#FF8EAF] border-5 p-4 pb-1 rounded-xl shadow-[_8px_10px_pink]  w-70 h-50 items-center">
-            <img
-              src="/assets/15.webp"
-              alt="รูปอ้วน"
-              className="rounded-md object-cover width={40}"
-            />
-            <p className="font-sarabun text-center font-bold px-12 py-1 ">
-              ปวด บวม แดง บริเวณแผล
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col items-center  bg-white">
-          <div className="flex border-[#73B8B3] border-5 p-4 pb-1 rounded-xl shadow-[_8px_10px_rgba(133,201,197,1)] w-70 h-50 items-center">
-            <img
-              src="/assets/19.webp"
-              alt="รูปอ้วน"
-              className="rounded-md object-cover h-25"
-            />
-            <p className="font-sarabun text-center font-bold ">
-              แผลแยกหรือปริออก
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col items-center  bg-white">
-          <div className=" flex flex-row  border-[#FF8EAF] border-5 p-2 pb-1 rounded-xl shadow-[_8px_10px_pink] w-70 h-50 items-center">
-            <img
-              src="/assets/17.webp"
-              alt="รูปอ้วน"
-              className="rounded-md object-cover width-40 h-40"
-            />
-            <p className="font-sarabun text-center font-bold font-px-12 py-3">
-              ไข้สูงเกิน 38 องศาเซลเซียส
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col items-center  bg-white">
-          <div className=" flex flex-row  border-[#73B8B3] border-5 p-4 pb-1 rounded-xl shadow-[_8px_10px_rgba(133,201,197,1)] w-70 h-50 items-center">
-            <img
-              src="/assets/16.webp"
-              alt="รูปอ้วน"
-              className="rounded-md object-cover width-40 h-35 "
-            />
-            <p className="font-sarabun text-center font-bold font-px-12 py-3">
-              มีฝีหนองบริเวณแผล
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="items-center flex justify-center mt-6  bg-white">
-        <div className=" border-[#FF8EAF] border-5 p-3 pb-1 rounded-xl shadow-[_8px_10px_pink] w-70 h-55 items-center">
+      <section className="flex flex-col items-center justify-center">
+        <div className="flex items-center justify-center p-2">
           <img
-            src="/assets/18.webp"
-            alt="รูปอ้วน"
-            className="rounded-md object-cover width={40} "
+            alt="chem"
+            src="/assets/13.webp"
+            width={35}
+            className="mr-2 drop-shadow-sm"
           />
-          <p className="font-sarabun text-center font-semibold px-9 py-3">
-            นํ้าคาวปลามีกลิ่นแรงหรือมีเลือดปน
-          </p>
+          <h1 className="text-[26px] text-[#F0818C] font-bold font-sarabun tracking-wide text-center">
+            อาการและอาการแสดง
+          </h1>
         </div>
-      </div>
+        <div className="relative p-4 w-full flex flex-col items-center">
+          {/* --- Symptoms List --- */}
+          <div className="flex flex-col gap-5 w-full max-w-md">
+            {symptomsData.map((item, index) => {
+              const isPink = index % 2 === 0;
+              const borderColor = isPink
+                ? 'border-[#FF8EAF]'
+                : 'border-[#73B8B3]';
+              const shadowColor = isPink
+                ? 'shadow-[4px_6px_0_#FFB7C5]'
+                : 'shadow-[4px_6px_0_#AADAD5]';
+
+              return (
+                <div
+                  key={item.id}
+                  className={`
+                    flex flex-col items-center bg-white justify-center rounded-3xl border-2 p-4
+                    ${borderColor} ${shadowColor}
+                    transition-transform hover:scale-[1.02] duration-300
+                `}
+                >
+                  <div className="w-full flex justify-center gap-3">
+                    {/* Image Section */}
+                    <img
+                      src={item.img}
+                      alt="symptom"
+                      className="object-cover h-40 w-auto max-w-full"
+                    />
+                  </div>
+                  {/* Text Section */}
+                  <p className="font-sarabun text-center font-bold text-[#444] text-lg leading-relaxed">
+                    {item.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
       <Nav_bar />
     </div>
   );
 }
-
-export default page;

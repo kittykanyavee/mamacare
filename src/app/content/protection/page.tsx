@@ -5,10 +5,14 @@ import BackButton from '@/component/back_button';
 
 export default function Page() {
   return (
-    <div className="mobile bg-pink-200 p-6 flex flex-col items-center font-baloo relative">
+    <div className="mobile flex flex-col items-center justify-between pt-13 relative">
       <MenuBar />
       <BackButton path="/content" />
-
+      <img
+        src="/assets/5.webp"
+        alt="frame"
+        className="absolute top-0 object-cover w-[447.96px] h-[36.5px]"
+      />
       {/* หัวข้อ */}
       <div className="items-center flex justify-center bg-[#AADAD5] font-sarabun font-bold w-200 min-h-[40px] px-8 border border-white text-2x gap-2 mb-10">
         <img alt="care" src="/assets/14.webp" width={40} />

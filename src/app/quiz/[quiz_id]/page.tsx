@@ -24,20 +24,16 @@ const Page = () => {
     }
   }, [params.quiz_id]);
   return (
-    <div className="mobile flex flex-col items-center justify-start gap-4 relative pb-28 pt-12 px-[20px] overflow-hidden">
+    <div className="mobile flex flex-col items-center justify-between pt-13 relative">
       <BackButton path="/quiz" />
       <img
         src="/assets/5.webp"
         alt="frame"
         className="absolute top-0 object-cover w-[447.96px] h-[36.5px]"
       />
-      <Quiz question={quiz} />
-      <button
-        className="bg-[#F0818C] h-[32px] px-6 rounded-md font-sarabun text-[14px] text-white"
-        onClick={() => (window.location.href = '/quiz')}
-      >
-        ย้อนกลับ
-      </button>
+      <div className="flex flex-col justify-center items-center w-full px-4">
+        <Quiz question={quiz} />
+      </div>
       <Nav_bar />
     </div>
   );

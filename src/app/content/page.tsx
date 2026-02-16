@@ -23,9 +23,9 @@ const page = () => {
     },
   ];
   return (
-    <div className="mobile flex flex-col items-center justify-between pb-9 pt-18 relative">
+    <div className="mobile flex flex-col items-center justify-between pt-18 relative">
       <img
-        src="assets/5.webp"
+        src="/assets/5.webp"
         alt="frame"
         className="absolute top-0 object-cover w-[447.96px] h-[36.5px]"
       />

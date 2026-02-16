@@ -3,113 +3,68 @@ import MenuBar from '@/component/menu_bar';
 import Nav_bar from '@/component/nav_bar';
 import BackButton from '@/component/back_button';
 
-export default function causepage() {
+export default function CausePage() {
+  // สร้าง Data Array เพื่อให้จัดการข้อมูลง่าย และโค้ดสะอาดขึ้น
+  const causes = [
+    { id: 1, img: '/assets/9.webp', title: 'รูปร่างอ้วน' },
+    { id: 2, img: '/assets/11.webp', title: 'เป็นเบาหวาน' },
+    { id: 3, img: '/assets/12.webp', title: 'การใช้ Steroid' },
+    { id: 4, img: '/assets/10.webp', title: 'มีภูมิต้านทานตํ่า' },
+    { id: 5, img: '/assets/21.webp', title: 'มีภาวะซีด' },
+    { id: 6, img: '/assets/22.webp', title: 'มีก้อนเลือดคั่งที่แผล' },
+    {
+      id: 7,
+      img: '/assets/23.webp',
+      title: 'ติดเชื้อเยื่อหุ้มเด็ก',
+      special: true,
+    }, // ตัวสุดท้ายอาจจะยาวหน่อย
+  ];
+
   return (
-    <div className="mobile bg-[#FCF9DA] p-6 flex flex-col items-center font-baloo">
+    <div className="mobile flex flex-col items-center justify-between pt-12 relative">
+      <img
+        src="/assets/5.webp"
+        alt="frame"
+        className="fixed top-0 object-cover w-[447.96px] h-[36.5px]"
+      />
       <MenuBar />
       <BackButton path="/content" />
 
-      {/* หัวข้อ */}
-      <div className="items-center flex justify-center bg-[#AADAD5] font-baloo font-bold w-fit min-h-[40px] px-8 border border-white gap-2 mb-12">
-        <img alt="glass" src="/assets/8.webp" width={40} />
-        <h1 className="text-2xl">สาเหตุของการติดเชื้อ</h1>
+      <div className="mt-2 mb-8 flex items-center justify-center">
+        <img alt="glass" src="/assets/8.webp" width={30} className="mr-2" />
+        <h1 className="text-[26px] text-[#F0818C] font-bold font-sarabun tracking-wide text-center">
+          สาเหตุของการติดเชื้อ
+        </h1>
       </div>
-      {/* เนื้อหา */}
-      <div className="grid grid-cols-2 gap-6">
-        {/* อ้วน */}
-        <div className="flex flex-col items-center">
-          <div className="bg-white p-6 rounded-xl shadow-[_0px_20px_rgba(255,142,175)] mask-origin-border items-center">
-            <img
-              src="/assets/9.webp"
-              alt="รูปอ้วน"
-              className="rounded-md object-cover  width={40}"
-            />
-          </div>
-          <p className="font-sarabun rounded-2xl shadow-md bg-[#F7CBCE] border text-center font-bold px-12 py-1 ">
-            รูปร่างอ้วน
-          </p>
-        </div>
 
-        {/* เป็นเบาหวาน */}
-        <div className="flex flex-col items-center">
-          <div className="bg-white p-6 rounded-xl shadow-[_0px_20px_rgba(255,142,175)] mask-origin-border items-center">
-            <img
-              src="/assets/11.webp"
-              alt="เป็นเบาหวาน"
-              className="rounded-md object-cover width={60} h-32"
-            />
-          </div>
-          <p className="font-sarabun rounded-2xl shadow-md bg-[#F7CBCE] border text-center font-bold px-9 py-1">
-            เป็นเบาหวาน
-          </p>
-        </div>
+      {/* --- Grid Layout for Cards --- */}
+      <div className="grid grid-cols-2 gap-5 w-full max-w-md px-4 pb-4">
+        {causes.map((item, index) => (
+          <div
+            key={item.id}
+            // ถ้าเป็นตัวสุดท้าย (เลขคี่) ให้เต็มความกว้าง (col-span-2) หรือจัดกึ่งกลางตามดีไซน์
+            className={`
+                bg-white rounded-3xl p-4 flex flex-col items-center justify-between
+                shadow-[0_6px_0_rgb(247,203,206)] border-2 border-[#FFF0F3]
+                transition-all duration-300 hover:-translate-y-1 active:translate-y-1 active:shadow-none
+                ${index === causes.length - 1 ? 'col-span-2 w-3/4 mx-auto' : ''}
+              `}
+          >
+            <div className="w-full h-24 flex items-center justify-center mb-2 overflow-hidden rounded-xl bg-[#FFF9F9]">
+              <img
+                src={item.img}
+                alt={item.title}
+                className="object-contain h-full w-full p-1"
+              />
+            </div>
 
-        {/* Steroids */}
-        <div className="flex flex-col items-center">
-          <div className="bg-white p-6 rounded-xl shadow-[_0px_20px_rgba(255,142,175)] mask-origin-border items-center">
-            <img
-              src="/assets/12.webp"
-              alt="การใช้สเตียรอยด์"
-              className="rounded-md object-cover width={40} "
-            />
+            <div className="w-full bg-[#FFEFF4] rounded-xl py-1 px-2 mt-1">
+              <p className="font-sarabun text-[#D65A7F] text-center font-bold text-sm leading-tight">
+                {item.title}
+              </p>
+            </div>
           </div>
-          <p className="font-sarabun rounded-2xl shadow-md bg-[#F7CBCE] border text-center font-bold px-10 py-1">
-            การใช้ steroid
-          </p>
-        </div>
-
-        {/* มีภูมิต้านทานตํ่า */}
-        <div className="flex flex-col items-center">
-          <div className="bg-white p-6 rounded-xl shadow-[_0px_20px_rgba(255,142,175)] mask-origin-border items-center">
-            <img
-              src="/assets/10.webp"
-              alt="มีภูมิต้านทานตํ่า"
-              className="rounded-md object-cover width={40} h-32"
-            />
-          </div>
-          <p className="font-sarabun rounded-2xl shadow-md bg-[#F7CBCE] border text-center font-bold px-6 py-1">
-            มีภูมิต้านทานตํ่า
-          </p>
-        </div>
-        {/* มีภาวะซีด */}
-        <div className="flex flex-col items-center">
-          <div className="bg-white p-6 rounded-xl shadow-[_0px_20px_rgba(255,142,175)] mask-origin-border items-center">
-            <img
-              src="/assets/21.webp"
-              alt="มีภูมิต้านทานตํ่า"
-              className="rounded-md object-cover width={40} h-32"
-            />
-          </div>
-          <p className="font-sarabun rounded-2xl shadow-md bg-[#F7CBCE] border text-center font-bold px-6 py-1">
-            มีภาวะซีด
-          </p>
-        </div>
-        {/* มีก้อนเลือดคั่งที่แผล */}
-        <div className="flex flex-col items-center">
-          <div className="bg-white p-6 rounded-xl shadow-[_0px_20px_rgba(255,142,175)] mask-origin-border items-center">
-            <img
-              src="/assets/22.webp"
-              alt="มีภูมิต้านทานตํ่า"
-              className="rounded-md object-cover width={40} h-32"
-            />
-          </div>
-          <p className="font-sarabun rounded-2xl shadow-md bg-[#F7CBCE] border text-center font-bold px-6 py-1">
-            มีก้อนเลือดคั่งที่แผล
-          </p>
-        </div>
-      </div>
-      {/* มีการติดเชื้อของเยื่อหุ้มเด็ก */}
-      <div className="flex flex-col items-center py-10">
-        <div className="bg-white p-6 rounded-xl shadow-[_0px_20px_rgba(255,142,175)] mask-origin-border items-center">
-          <img
-            src="/assets/23.webp"
-            alt="มีภูมิต้านทานตํ่า"
-            className="rounded-md object-cover width={40} h-32"
-          />
-        </div>
-        <p className="font-sarabun rounded-2xl shadow-md bg-[#F7CBCE] border text-center font-bold px-6 py-1">
-          มีการติดเชื้อของเยื่อหุ้มเด็ก
-        </p>
+        ))}
       </div>
       <Nav_bar />
     </div>

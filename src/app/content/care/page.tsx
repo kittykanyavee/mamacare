@@ -1,72 +1,93 @@
 'use client';
+
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import MenuBar from '@/component/menu_bar';
 import Nav_bar from '@/component/nav_bar';
 import BackButton from '@/component/back_button';
 
-function page() {
-  function handleClick(path: string) {
-    window.location.href = `/content/care/${path}`;
-  }
+// --- Reusable Component สำหรับปุ่มเมนู ---
+const MenuCard = ({
+  title,
+  subtitle,
+  onClick,
+  colorClass = 'bg-white',
+}: {
+  title: string;
+  subtitle?: string;
+  onClick: () => void;
+  colorClass?: string;
+}) => (
+  <button
+    onClick={onClick}
+    className={`
+      w-full max-w-[340px] p-6 rounded-3xl 
+      flex flex-col items-center justify-center text-center
+      shadow-[0_8px_0_rgba(230,230,230,1)] border-2 border-white
+      transform transition-all duration-150 active:translate-y-1 active:shadow-none
+      ${colorClass}
+    `}
+  >
+    <h2 className="font-sarabun font-bold text-2xl text-[#D65A7F]">{title}</h2>
+    {subtitle && (
+      <p className="font-sarabun text-lg mt-1 leading-tight">{subtitle}</p>
+    )}
+  </button>
+);
+
+export default function Page() {
+  const router = useRouter();
+
+  const handleNavigate = (path: string) => {
+    router.push(`/content/care/${path}`);
+  };
+
   return (
-    <div className="mobile pb-9 pt-12 flex flex-col items-center relative">
+    <div className="mobile flex flex-col items-center justify-between pt-12 relative">
       <img
         src="/assets/5.webp"
         alt="frame"
-        className="fixed top-0 object-cover w-[447.96px] h-[36.5px]"
+        className="absolute top-0 object-cover w-[447.96px] h-[36.5px]"
       />
       <MenuBar />
       <BackButton path="/content" />
-
-      {/* หัวข้อ */}
-      <div className="items-center flex justify-center bg-[#AADAD5] font-bold min-h-[40px] px-8 border border-white text-2x gap-2 mb-10">
-        <img alt="care" src="/assets/14.webp" width={40} />
-        <h1 className="text-[30px] font-sarabun">การดูแลแผลผ่าตัด</h1>
-      </div>
-      {/*เนื้อหา*/}
-      <div
-        className="bg-[#FAF0D9] shadow-[_8px_10px_white] w-92 h-40 p-6 rounded-xl items-center"
-        onClick={() => handleClick('guidelines')}
-      >
-        <h1 className="text-center font-bold font-sarabun text-[32px] mt-2">
-          คำแนะนำ
-        </h1>
-        <h1 className="items-center font-bold font-sarabun text-[24px] ">
-          <span className="text-nowrap">การดูแลแผลผ่าคลอดทางหน้าท้อง</span>
-        </h1>
-      </div>
-      <div className="grid grid-cols-1 gap-12 mt-12">
-        {/* แผลผ่าคลอด */}
-        <div className="flex flex-col items-center">
-          <div
-            className="bg-[#FAF0D9] shadow-[_8px_10px_white] w-90 h-50 p-6 rounded-xl items-center"
-            onClick={() => handleClick('abnormal')}
-          >
-            <p className="text-center font-bold font-sarabun text-[28px] mt-4">
-              อาการผิดปกติ
-            </p>
-            <p className="text-center font-bold font-sarabun text-[28px] mt-4">
-              ที่ควรมาพบแพทย์
-            </p>
-          </div>
+      <div>
+        <div className="mt-2 mb-8 flex items-center justify-center">
+          <img
+            alt="care"
+            src="/assets/14.webp"
+            width={35}
+            className="mr-3 drop-shadow-sm"
+          />
+          <h1 className="text-[26px] text-[#F0818C] font-bold font-sarabun tracking-wide text-center">
+            การดูแลแผลผ่าตัด
+          </h1>
         </div>
-        <div className="flex flex-col items-center">
-          <div
-            className="bg-[#FAF0D9] shadow-[_8px_10px_white] w-90 h-50 p-6 rounded-xl items-center "
-            onClick={() => handleClick('video')}
-          >
-            <p className="text-center font-bold font-sarabun text-[28px] mt-4">
-              วิดิโอการดูแล
-            </p>
-            <p className="text-center font-bold font-sarabun text-[26px] mt-4">
-              แผลผ่าคลอดเพิ่มเติม
-            </p>
-          </div>
+
+        <div className="flex flex-col gap-6 w-full items-center">
+          <MenuCard
+            title="คำแนะนำ"
+            subtitle="การดูแลแผลผ่าคลอดทางหน้าท้อง"
+            onClick={() => handleNavigate('guidelines')}
+            colorClass="bg-[#FAF0D9]"
+          />
+
+          <MenuCard
+            title="อาการผิดปกติ"
+            subtitle="ที่ควรมาพบแพทย์ทันที"
+            onClick={() => handleNavigate('abnormal')}
+            colorClass="bg-[#FAF0D9]"
+          />
+
+          <MenuCard
+            title="วิดีโอสาธิต"
+            subtitle="การดูแลแผลผ่าคลอดเพิ่มเติม"
+            onClick={() => handleNavigate('video')}
+            colorClass="bg-[#FAF0D9]"
+          />
         </div>
       </div>
       <Nav_bar />
     </div>
   );
 }
-
-export default page;
